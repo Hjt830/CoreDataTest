@@ -1,0 +1,46 @@
+//
+//  PrefixHeader.pch
+//  CoreDataTest
+//
+//  Created by 黄金台 on 2019/3/2.
+//  Copyright © 2019年 黄金台. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+
+#pragma mark ====================== 判断是否为空字符串、空数组、空字典 ======================
+
+/**
+ *  是否是空字符串 或者 不是字符串
+ */
+#define JTIsEmptyString(str)    ((!str \
+                                || ([str isEqual:[NSNull null]]) \
+                                || (![str isKindOfClass:[NSString class]]) \
+                                || ([str isKindOfClass:[NSString class]] && 0 == str.length) \
+                                || ([str isKindOfClass:[NSString class]] && ([str isEqualToString:@""] || [str isEqualToString:@"null"] || [str isEqualToString:@"<null>"]))) \
+                                ? YES : NO)
+/**
+ *  是否是空数组  或者 不是数组
+ */
+#define JTIsEmptyArray(arr)     ((!arr \
+                                || ([arr isEqual:[NSNull null]]) \
+                                || (![arr isKindOfClass:[NSArray class]]) \
+                                || ([arr isKindOfClass:[NSArray class]] && 0 == arr.count)) \
+                                ? YES : NO)
+/**
+ *  是否是空字典  或者 不是字典
+ */
+#define JTIsEmptyDictionary(dic)    ((!dic \
+                                    || ([dic isEqual:[NSNull null]]) \
+                                    || (![dic isKindOfClass:[NSDictionary class]]) \
+                                    || ([dic isKindOfClass:[NSDictionary class]] && 0 == dic.count)) \
+                                    ? YES : NO)
+
+
+
+
+
+
+#endif /* PrefixHeader_pch */
